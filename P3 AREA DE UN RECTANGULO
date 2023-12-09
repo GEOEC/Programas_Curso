@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+  float b;
+  float h;
+  float a;
+
+  printf("Ingrese la base: ");
+  scanf(" %f",&b);
+
+  printf("Ingrese la altura: ");
+  scanf(" %f", &h);
+
+  a = b * h;
+
+  printf("El area del rectangulo es: %.2f", a);
+  
+
+ 
+}
