@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+  float euros;
+
+  printf("Ingrese el numero de euros a convertir: \n");
+  scanf(" %f",&euros);
+
+  printf("%.2f euros equivalen a %.2f dolares",euros,euros*1.33);
+
+ 
+}
