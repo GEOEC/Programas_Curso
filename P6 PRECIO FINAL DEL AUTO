@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+  int precio;
+  int kilometros;
+  float consumo;
+  float preciof;
+
+  printf("Ingrese el precio base del vehiculo: ");
+  scanf(" %d", &precio);
+
+  printf("Ingrese lo kilometros recorridos: ");
+  scanf(" %d",&kilometros);
+
+  printf("Ingrese el consumo del vehiculo: ");
+  scanf(" %f", &consumo);
+
+  if(kilometros<20000 && consumo<=5){
+    preciof=precio*1.2;
+    printf("Hubo un incremento de %.2f dolares en el precio\n", preciof-precio);
+  }
+  else if (kilometros>20000 && consumo<=5){
+    preciof=precio*1.1;
+    printf("Hubo un incremento de %.2f dolares en el precio\n", preciof-precio);
+  }
+  else if (consumo>5){
+    preciof=precio*1.05;
+    printf("Hubo un incremento de %.2f dolares en el precio\n", preciof-precio);
+  }
+
+  printf("El precio final del vehiculo es: %.2f", preciof);
+
+}
