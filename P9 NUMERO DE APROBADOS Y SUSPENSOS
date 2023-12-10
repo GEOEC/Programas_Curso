@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+
+ int a;
+  int cont_aprobados = 0;
+  int cont_reprobados = 0;
+  float nota;
+
+  printf("Ingrese el numero de estudiantes: ");
+  scanf(" %d", &a);
+
+  for (int i=1 ; i<=a ; i++){
+    
+    printf("Introduce la nota del alumno %d: ",i);
+    scanf(" %f",&nota);
+
+    if (nota>=5){
+      cont_aprobados++;
+    }
+    else{
+      cont_reprobados++;
+    }
+  }
+  printf("El numero de alumnos aprobados es %d y de reprobados es %d", cont_aprobados, cont_reprobados);
+}
