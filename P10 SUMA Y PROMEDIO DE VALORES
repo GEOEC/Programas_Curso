@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+
+ int num=-1;
+  int suma=0;
+  int cont=0;
+  
+  while(num!=0){
+    printf("Ingrese un numero: ");
+    scanf(" %d",&num);
+    cont++;
+    suma=suma+num;
+  }
+  float promedio = suma / cont;
+  printf("Lasuma de todo los numeros es %d y e promedio es %.2f", suma, promedio);
+}
