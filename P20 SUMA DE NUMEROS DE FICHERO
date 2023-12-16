@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+int main() {
+  FILE *f;
+  f = fopen("numeros.txt", "r");
+
+  int suma=0, numeros;
+
+  while (fscanf(f, "%d", &numeros) == 1){
+    fscanf(f,"%d",&numeros);
+    suma += numeros;
+  }
+  printf("La suma de todos los numeros de fichero es: %d\n",suma);
+  fclose(f);
+  return 0;
+  
+};
