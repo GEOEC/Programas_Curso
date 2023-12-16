@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+
+  char cadena [50], cadena2 [50], cadena3 [50], cadena4 [50];
+
+  printf("Introduce la cadena 1 \n");
+  fgets(cadena, 50, stdin);
+  printf("Introduce la cadena 2 \n");
+  fgets(cadena2, 50, stdin);
+  printf("Introduce la cadena 3 \n");
+  fgets(cadena3, 50, stdin);
+  printf("Introduce la cadena 4 \n");
+  fgets(cadena4, 50, stdin);
+
+  printf("%s-%s-%s-%s", cadena, cadena2, cadena3, cadena4);
+}
