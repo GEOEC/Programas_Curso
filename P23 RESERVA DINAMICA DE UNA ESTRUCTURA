@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+struct producto {
+    int codigo;
+    char descripcion[50];
+    float precio;
+};
+int main() {
+    struct producto *prod;
+    prod = malloc(sizeof(struct producto)); 
+    printf("Introduce el código\n");
+    scanf("%d", &prod->codigo);
+    printf("Introduce la descripcion\n");
+    scanf("%s", prod->descripcion); 
+    printf("Introduce el precio\n");
+    scanf("%f", &prod->precio);
+    printf("Codigo del articulo: %d\n", prod->codigo);
+    printf("Descripcion del articulo: %s\n", prod->descripcion); 
+    printf("Precio del articulo: %.2f\n", prod->precio); 
+    free(prod); 
+    prod = NULL; 
+    return 0;
+};
