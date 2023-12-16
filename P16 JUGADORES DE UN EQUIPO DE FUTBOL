@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void limpiarBuffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
+int main() {
+    struct jugador {
+        char nombre[30];
+        int edad;
+        float altura;
+    };
+
+    struct jugador jugadores[5];
+
+    for (int i = 0; i < 5; i++) {
+        printf("Introduce el nombre del jugador %d\n", i + 1);
+        fgets(jugadores[i].nombre, sizeof(jugadores[i].nombre), stdin);
+        limpiarBuffer();
+
+        printf("Introduce la edad del jugador %d\n", i + 1);
+        scanf("%d", &jugadores[i].edad);
+        limpiarBuffer();
+
+        printf("Introduce la altura del jugador %d\n", i + 1);
+        scanf("%f", &jugadores[i].altura);
+        limpiarBuffer();
+    }
+
+    int opcion = -1;
+    while (opcion != 0) {
+        printf("Introduce la opcion que quieres ejecutar:\n");
+        printf("1. Listar Jugador \n");
+        printf("2. Buscar Jugador \n");
+        printf("3. Jugador Mas Alto \n");
+        printf("0. Salir \n");
+
+        scanf("%d", &opcion);
+
+        if (opcion == 1) {
+            for (int i = 0; i < 5; i++) {
+                printf("Jugador de nombre %s tiene %d años y mide %f metros\n",
+                       jugadores[i].nombre, jugadores[i].edad, jugadores[i].altura);
+            }
+        } else if (opcion == 2) {
+            char nombre[30];
+            printf("Introduce el nombre del jugador que quieres buscar\n");
+            fgets(nombre, sizeof(nombre), stdin);
+            limpiarBuffer();
+
+            int encontrado = 0;
+            for (int i = 0; i < 5; i++) {
+                // Comparar ignorando el carácter de nueva línea
+                if (strcmp(jugadores[i].nombre, nombre) == 0 || strcmp(jugadores[i].nombre, nombre) == '\n') {
+                    printf("Jugador de nombre %s tiene %d años y mide %f metros\n",
+                           jugadores[i].nombre, jugadores[i].edad, jugadores[i].altura);
+                    encontrado = 1;
+                }
+            }
+            if (!encontrado) {
+                printf("Jugador no encontrado\n");
+            }
+        } else if (opcion == 3) {
+            float masAlto = 0;
+            int indice = 0;
+            for (int i = 0; i < 5; i++) {
+                if (jugadores[i].altura > masAlto) {
+                    masAlto = jugadores[i].altura;
+                    indice = i;
+                }
+            }
+            printf("El jugador mas alto es %s con %f metros\n",
+                   jugadores[indice].nombre, jugadores[indice].altura);
+        }
+    }
+
+    return 0;
+}
